@@ -13,6 +13,8 @@
 		CDED177C1975601B00384518 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDED177A1975601B00384518 /* Main.storyboard */; };
 		CDED177E1975601B00384518 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDED177D1975601B00384518 /* Images.xcassets */; };
 		CDED178A1975601B00384518 /* XS_ManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDED17891975601B00384518 /* XS_ManagerTests.swift */; };
+		CDED17991975693500384518 /* CommonLib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDED17981975693400384518 /* CommonLib.cpp */; };
+		CDED179C197571C300384518 /* CommonsObjc.m in Sources */ = {isa = PBXBuildFile; fileRef = CDED179B197571C300384518 /* CommonsObjc.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,11 @@
 		CDED17831975601B00384518 /* XS-ManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XS-ManagerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDED17881975601B00384518 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDED17891975601B00384518 /* XS_ManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XS_ManagerTests.swift; sourceTree = "<group>"; };
+		CDED17941975647100384518 /* XS-Manager-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XS-Manager-Bridging-Header.h"; sourceTree = "<group>"; };
+		CDED1797197564C900384518 /* CommonLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonLib.h; sourceTree = "<group>"; };
+		CDED17981975693400384518 /* CommonLib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonLib.cpp; sourceTree = "<group>"; };
+		CDED179A197570EC00384518 /* CommonsObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonsObjc.h; sourceTree = "<group>"; };
+		CDED179B197571C300384518 /* CommonsObjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonsObjc.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +66,7 @@
 		CDED17661975601A00384518 = {
 			isa = PBXGroup;
 			children = (
+				CDED17931975643400384518 /* Shared */,
 				CDED17711975601A00384518 /* XS-Manager */,
 				CDED17861975601B00384518 /* XS-ManagerTests */,
 				CDED17701975601A00384518 /* Products */,
@@ -110,6 +118,18 @@
 				CDED17881975601B00384518 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CDED17931975643400384518 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CDED17941975647100384518 /* XS-Manager-Bridging-Header.h */,
+				CDED1797197564C900384518 /* CommonLib.h */,
+				CDED17981975693400384518 /* CommonLib.cpp */,
+				CDED179A197570EC00384518 /* CommonsObjc.h */,
+				CDED179B197571C300384518 /* CommonsObjc.m */,
+			);
+			name = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,8 +231,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDED179C197571C300384518 /* CommonsObjc.m in Sources */,
 				CDED17791975601A00384518 /* DetailViewController.swift in Sources */,
 				CDED17771975601A00384518 /* MasterViewController.swift in Sources */,
+				CDED17991975693500384518 /* CommonLib.cpp in Sources */,
 				CDED17751975601A00384518 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,10 +353,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "XS-Manager/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "XS-Manager-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -343,10 +368,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "XS-Manager/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "XS-Manager-Bridging-Header.h";
 			};
 			name = Release;
 		};

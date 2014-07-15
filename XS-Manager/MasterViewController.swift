@@ -95,6 +95,8 @@ class MasterViewController: UITableViewController {
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
             let object = objects[indexPath.row] as NSDate
             self.detailViewController!.detailItem = object
+            var i = CommonsObjc.processPersons("xml file content")
+            println("processed:\(i)")
         }
     }
 
