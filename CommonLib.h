@@ -7,7 +7,7 @@
 #ifndef _PERF_CPLUSPLUS_
 #define _PERF_CPLUSPLUS_
 
-#include <string.h>
+#include <string>
 #include <stdlib.h>
 
 class CommonLib
