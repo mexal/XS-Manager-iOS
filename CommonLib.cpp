@@ -7,24 +7,22 @@
 //
 
 #include <stdlib.h>
-#include <string>
+#include <string.h>
 
 #include "CommonLib.h"
 
-using namespace std;
-
-int CommonLib::processDoors(string* xml) {
+int CommonLib::processDoors(const char* xml) {
     return -1;
 }
 
-int CommonLib::processPersons(string* xml) {
+int CommonLib::processPersons(const char* xml) {
     return -1;
 }
 
-int CommonLib::processPermissions(string* xml ) {
+int CommonLib::processPermissions(const char* xml ) {
     return -1;
 }
 
-bool CommonLib::bindDoorToDevice(string* doorNumber, string* deviceUUID) {
+bool CommonLib::bindDoorToDevice(const char* doorNumber, const char* deviceUUID) {
     return false;
 }

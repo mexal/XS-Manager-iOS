@@ -11,7 +11,8 @@
 @implementation CommonsObjc
 
 +(int)processPersons:(NSString *)fromString {
-    int result = CommonLib::processPersons((std::string)fromString);
+    const char *str = [fromString UTF8String];
+    int result = CommonLib::processPersons(str);
     return result;
 }
 @end

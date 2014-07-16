@@ -7,16 +7,13 @@
 #ifndef _PERF_CPLUSPLUS_
 #define _PERF_CPLUSPLUS_
 
-#include <string>
-#include <stdlib.h>
-
 class CommonLib
 {
 public:
-    static int processDoors(std::string* xml);
-    static int processPersons(std::string* xml);
-    static int processPermissions(std::string* xml);
-    static bool bindDoorToDevice(std::string* doorNumber, std::string* deviceUUID);
+    static int processDoors(const char* xml);
+    static int processPersons(const char* xml);
+    static int processPermissions(const char* xml);
+    static bool bindDoorToDevice(const char* doorNumber, const char* deviceUUID);
 };
 
 #endif //_PERF_CPLUSPLUS_
