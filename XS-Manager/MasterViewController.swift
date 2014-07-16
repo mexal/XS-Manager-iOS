@@ -10,6 +10,12 @@ import UIKit
 
 class MasterViewController: UITableViewController {
 
+    let DOORS: NSString = ""
+    let PERSONS: NSString = "<Persons><Person number=\"00000915\" name=\"John Doe\"/>" +
+        "<Person number=\"00000989\" name=\"Freddy Star\"/>" +
+        "<Person number=\"00000922\" name=\"Hero Mero\"/></Persons>"
+    let PERMISSIONS: NSString = ""
+    
     var detailViewController: DetailViewController? = nil
     var objects = NSMutableArray()
 
@@ -95,7 +101,7 @@ class MasterViewController: UITableViewController {
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
             let object = objects[indexPath.row] as NSDate
             self.detailViewController!.detailItem = object
-            var i = CommonsObjc.processPersons("xml contents" as NSString)
+            var i = CommonsObjc.processPersons(PERSONS)
             println("processed:\(i)")
         }
     }

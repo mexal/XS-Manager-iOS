@@ -15,6 +15,7 @@
 		CDED178A1975601B00384518 /* XS_ManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDED17891975601B00384518 /* XS_ManagerTests.swift */; };
 		CDED17991975693500384518 /* CommonLib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDED17981975693400384518 /* CommonLib.cpp */; };
 		CDED179C197571C300384518 /* CommonsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = CDED179B197571C300384518 /* CommonsObjc.mm */; };
+		CDED17C81976772200384518 /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDED17C61976772200384518 /* tinyxml2.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		CDED17981975693400384518 /* CommonLib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonLib.cpp; sourceTree = "<group>"; };
 		CDED179A197570EC00384518 /* CommonsObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonsObjc.h; sourceTree = "<group>"; };
 		CDED179B197571C300384518 /* CommonsObjc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CommonsObjc.mm; sourceTree = "<group>"; };
+		CDED17C61976772200384518 /* tinyxml2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxml2.cpp; path = ../tinyxml2/tinyxml2.cpp; sourceTree = "<group>"; };
+		CDED17C71976772200384518 /* tinyxml2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyxml2.h; path = ../tinyxml2/tinyxml2.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 		CDED17931975643400384518 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				CDED17C61976772200384518 /* tinyxml2.cpp */,
+				CDED17C71976772200384518 /* tinyxml2.h */,
 				CDED17941975647100384518 /* XS-Manager-Bridging-Header.h */,
 				CDED1797197564C900384518 /* CommonLib.h */,
 				CDED17981975693400384518 /* CommonLib.cpp */,
@@ -231,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDED17C81976772200384518 /* tinyxml2.cpp in Sources */,
 				CDED179C197571C300384518 /* CommonsObjc.mm in Sources */,
 				CDED17791975601A00384518 /* DetailViewController.swift in Sources */,
 				CDED17771975601A00384518 /* MasterViewController.swift in Sources */,
