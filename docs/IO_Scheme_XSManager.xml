@@ -1,0 +1,53 @@
+Simplified WS Protocol
+
+Host:
+http://api.dorma.com
+
+Uri: /persons
+GET
+<Persons>
+	<Person number="00000915" name="John Doe"/>
+</Persons>
+
+Uri: /doors
+GET
+<Doors>
+	<Door number="12" name="Office Main Entrance"/>
+</Doors>
+
+Uri: /permissions
+GET
+<Permissions>
+	<Permission doorNumber="12" personNumber="00000915"/>
+</Permissions>
+
+Simplified DB Schema:
+
+Persons {
+	person_number TEXT UNIQUE NOT NULL,
+	person_name TEXT NOT NULL
+}
+
+Doors {
+	door_number TEXT UNIQUE NOT NULL,
+	door_name TEXT NOT NULL
+}
+
+Permissions {
+	permission_person_number TEXT NOT NULL,
+	permission_door_number TEXT NOT NULL,
+	PRIMARY KEY (permission_person_number, permission_door_number)
+}
+
+c++ Interface:
+
+int processPersons(string xml);
+int processDoors(string xml);
+int processPermissions(string xml);
+boolean bindDoorToDevice(String doorNumber, String deviceUUID);
+
+Implementation is synchronous.
+The rest of the interface (BLE devices interaction) will be added later
+
+Official SQLite docs:
+http://www.sqlite.org/cintro.html
