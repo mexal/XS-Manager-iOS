@@ -28,9 +28,11 @@ int CommonLib::processPersons(const char* xml) {
         return -1;
     }
     
+    int count = 0;
     XMLElement *levelElement = doc.FirstChildElement("Persons");
     for (XMLElement* child = levelElement->FirstChildElement(); child != NULL; child = child->NextSiblingElement())
     {
+        count++;
         const char* number = child->Attribute("number");
         const char* name = child->Attribute("name");
         cout<<"Person number:"<<number<<",name:"<<name<<endl;
@@ -44,7 +46,7 @@ int CommonLib::processPersons(const char* xml) {
 //    XMLText* textNode = doc.FirstChildElement( "PLAY" )->FirstChildElement( "TITLE" )->FirstChild()->ToText();
 //    title = textNode->Value();
 //    printf( "Name of play (2): %s\n", title );
-    return -1;
+    return count;
 }
 
 int CommonLib::processPermissions(const char* xml ) {
