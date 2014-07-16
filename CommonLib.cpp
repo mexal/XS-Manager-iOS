@@ -17,10 +17,13 @@
 using namespace tinyxml2;
 using namespace std;
 
-CommonLib::CommonLib(sqlite3* database) {
-    _database = database;
+CommonLib::CommonLib(const char* fileName) {
+    if (sqlite3_open(fileName, &_database) != SQLITE_OK) {
+        cout<<"Cannot create a databse"<<endl;
+    }
 }
 CommonLib::~CommonLib() {
+    sqlite3_close(_database);
 }
 
 int CommonLib::processDoors(const char* xml) {
@@ -28,6 +31,13 @@ int CommonLib::processDoors(const char* xml) {
 }
 
 int CommonLib::processPersons(const char* xml) {
+    char* errMsg;
+    string statement = string("CREATE TABLE IF NOT EXISTS Persons (person_number TEXT UNIQUE NOT NULL, person_name TEXT NOT NULL);");
+    if (sqlite3_exec(_database, statement.c_str(), NULL, NULL, &errMsg) != SQLITE_OK) {
+        cout<<"Cannot create a table"<<endl;
+        return -1;
+    }
+    
     XMLDocument doc;
     XMLError err = doc.Parse(xml);
     cout<<"Error:"<<err<<endl;

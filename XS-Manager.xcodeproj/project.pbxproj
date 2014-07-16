@@ -129,17 +129,41 @@
 		CDED17931975643400384518 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				CDED17C91976893000384518 /* sqlite3.c */,
-				CDED17CA1976893000384518 /* sqlite3.h */,
-				CDED17C61976772200384518 /* tinyxml2.cpp */,
-				CDED17C71976772200384518 /* tinyxml2.h */,
+				CDED17CE1976B2FE00384518 /* natives */,
+				CDED17CD1976B2E400384518 /* xml */,
+				CDED17CC1976B2CD00384518 /* sqlite */,
 				CDED17941975647100384518 /* XS-Manager-Bridging-Header.h */,
-				CDED1797197564C900384518 /* CommonLib.h */,
-				CDED17981975693400384518 /* CommonLib.cpp */,
 				CDED179A197570EC00384518 /* CommonsObjc.h */,
 				CDED179B197571C300384518 /* CommonsObjc.mm */,
 			);
 			name = Shared;
+			sourceTree = "<group>";
+		};
+		CDED17CC1976B2CD00384518 /* sqlite */ = {
+			isa = PBXGroup;
+			children = (
+				CDED17C91976893000384518 /* sqlite3.c */,
+				CDED17CA1976893000384518 /* sqlite3.h */,
+			);
+			name = sqlite;
+			sourceTree = "<group>";
+		};
+		CDED17CD1976B2E400384518 /* xml */ = {
+			isa = PBXGroup;
+			children = (
+				CDED17C61976772200384518 /* tinyxml2.cpp */,
+				CDED17C71976772200384518 /* tinyxml2.h */,
+			);
+			name = xml;
+			sourceTree = "<group>";
+		};
+		CDED17CE1976B2FE00384518 /* natives */ = {
+			isa = PBXGroup;
+			children = (
+				CDED1797197564C900384518 /* CommonLib.h */,
+				CDED17981975693400384518 /* CommonLib.cpp */,
+			);
+			name = natives;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

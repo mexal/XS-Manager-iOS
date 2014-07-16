@@ -12,7 +12,7 @@
 class CommonLib
 {
 public:
-    CommonLib(sqlite3* database);
+    CommonLib(const char* fileName);
     ~CommonLib();
     int processDoors(const char* xml);
     int processPersons(const char* xml);
