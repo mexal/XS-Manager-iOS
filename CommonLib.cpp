@@ -10,11 +10,18 @@
 #include <string.h>
 #include "tinyxml2.h"
 #include <iostream>
+#include "sqlite3.h"
 
 #include "CommonLib.h"
 
 using namespace tinyxml2;
 using namespace std;
+
+CommonLib::CommonLib() {
+}
+CommonLib::~CommonLib() {
+//    sqlite3_close(_database);
+}
 
 int CommonLib::processDoors(const char* xml) {
     return -1;
@@ -37,15 +44,6 @@ int CommonLib::processPersons(const char* xml) {
         const char* name = child->Attribute("name");
         cout<<"Person number:"<<number<<",name:"<<name<<endl;
     }
-    
-//    const char* title = doc.FirstChildElement( "Persons" )->FirstChildElement( "Person" )->FirstAttribute()->Value();
-//    printf( "Person number (1): %s\n", title );
-    
-//    // Text is just another Node to TinyXML-2. The more
-//    // general way to get to the XMLText:
-//    XMLText* textNode = doc.FirstChildElement( "PLAY" )->FirstChildElement( "TITLE" )->FirstChild()->ToText();
-//    title = textNode->Value();
-//    printf( "Name of play (2): %s\n", title );
     return count;
 }
 

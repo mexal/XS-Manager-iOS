@@ -10,4 +10,5 @@
 
 @interface CommonsObjc : NSObject
 +(int) processPersons: (NSString*) fromString;
++(NSString *) filePath;
 @end

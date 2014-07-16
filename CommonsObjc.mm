@@ -7,12 +7,34 @@
 //
 #import "CommonsObjc.h"
 #import "CommonLib.h"
+#import "sqlite3.h"
+#import <Foundation/Foundation.h>
 
 @implementation CommonsObjc
 
 +(int)processPersons:(NSString *)fromString {
+    sqlite3 *_database;
+    if (sqlite3_open([[self filePath] UTF8String], &_database) != SQLITE_OK) {
+        NSLog(@"Failed to create a database");
+        return -1;
+    }
+    
+    char* errMsg;
+    NSString* statement = @"CREATE TABLE IF NOT EXISTS Persons (person_number TEXT UNIQUE NOT NULL, person_name TEXT NOT NULL);";
+    if (sqlite3_exec(_database, [statement UTF8String], NULL, NULL, &errMsg) != SQLITE_OK) {
+        NSLog(@"Failed to create persons table");
+        return -1;
+    }
+    
     const char *str = [fromString UTF8String];
     int result = CommonLib::processPersons(str);
     return result;
+}
+
++(NSString *) filePath
+{
+    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory=[paths objectAtIndex:0];
+    return [documentDirectory stringByAppendingPathComponent:@"xsmanager.sqlite"];
 }
 @end

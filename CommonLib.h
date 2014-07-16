@@ -10,6 +10,8 @@
 class CommonLib
 {
 public:
+    CommonLib();
+    ~CommonLib();
     static int processDoors(const char* xml);
     static int processPersons(const char* xml);
     static int processPermissions(const char* xml);
