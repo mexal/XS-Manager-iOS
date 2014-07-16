@@ -20,14 +20,15 @@
     }
     
     char* errMsg;
-    NSString* statement = @"CREATE TABLE IF NOT EXISTS Persons (person_number TEXT UNIQUE NOT NULL, person_name TEXT NOT NULL);";
+    NSString* statement = @"CREATE TABLE IF NOT EXISTS Persons (person_number TEXT, person_name TEXT);";
     if (sqlite3_exec(_database, [statement UTF8String], NULL, NULL, &errMsg) != SQLITE_OK) {
         NSLog(@"Failed to create persons table");
         return -1;
     }
     
     const char *str = [fromString UTF8String];
-    int result = CommonLib::processPersons(str);
+    CommonLib* lib = new CommonLib(_database);
+    int result = lib->processPersons(str);
     return result;
 }
 

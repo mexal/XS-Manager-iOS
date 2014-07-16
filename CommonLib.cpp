@@ -17,10 +17,10 @@
 using namespace tinyxml2;
 using namespace std;
 
-CommonLib::CommonLib() {
+CommonLib::CommonLib(sqlite3* database) {
+    _database = database;
 }
 CommonLib::~CommonLib() {
-//    sqlite3_close(_database);
 }
 
 int CommonLib::processDoors(const char* xml) {
@@ -43,6 +43,14 @@ int CommonLib::processPersons(const char* xml) {
         const char* number = child->Attribute("number");
         const char* name = child->Attribute("name");
         cout<<"Person number:"<<number<<",name:"<<name<<endl;
+        string str = string("INSERT INTO Persons (person_number, person_name) VALUES ( ") + string(number) + " , \'" + string(name) + "\' )";
+        const char* statement = str.c_str();
+        char* sqlerr;
+        if (sqlite3_exec(_database, statement, NULL, NULL, &sqlerr) != SQLITE_OK) {
+            cout<<"Person not inserted:"<<sqlerr<<endl;
+        } else {
+            cout<<"Inserted person number:"<<number<<",name:"<<name<<endl;
+        }
     }
     return count;
 }
