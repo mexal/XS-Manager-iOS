@@ -9,12 +9,29 @@
 import UIKit
 
 class MasterViewController: UITableViewController {
-
-    let DOORS: NSString = ""
-    let PERSONS: NSString = "<Persons><Person number=\"00000915\" name=\"John Doe\"/>" +
-        "<Person number=\"00000989\" name=\"Freddy Star\"/>" +
-        "<Person number=\"00000922\" name=\"Hero Mero\"/></Persons>"
-    let PERMISSIONS: NSString = ""
+    
+    @IBAction func downloadData(sender: AnyObject) {
+        sendPersonsRequest()
+    }
+    
+    func sendPersonsRequest() {
+        var session = NSURLSession.sharedSession()
+        var personsUrl: NSURL = NSURL(scheme: "http", host: "192.168.3.142:8080", path: "/persons")
+        var task = session.dataTaskWithURL(personsUrl, completionHandler: handleResponse)
+        task.resume()
+    }
+    
+    func handleResponse(data: NSData!, response: NSURLResponse!, error: NSError!) -> (Void) {
+        println("Task completed")
+        if error != nil {
+            println(error.localizedDescription)
+            return
+        }
+        var content = NSString(data: data, encoding: NSUTF8StringEncoding)
+        println("Content:\(content)")
+        var i = CommonsObjc.processPersons(content)
+        println("processed:\(i)")
+    }
     
     var detailViewController: DetailViewController? = nil
     var objects = NSMutableArray()
@@ -39,6 +56,7 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
+        sendPersonsRequest()
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,8 +119,7 @@ class MasterViewController: UITableViewController {
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
             let object = objects[indexPath.row] as NSDate
             self.detailViewController!.detailItem = object
-            var i = CommonsObjc.processPersons(PERSONS)
-            println("processed:\(i)")
+            sendPersonsRequest()
         }
     }
 
