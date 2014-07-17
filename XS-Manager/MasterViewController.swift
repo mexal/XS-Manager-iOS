@@ -27,6 +27,11 @@ class MasterViewController: UITableViewController {
             println(error.localizedDescription)
             return
         }
+        
+        if (response as NSHTTPURLResponse).statusCode != 200 {
+            println("Response with unsuccessful code received")
+            return
+        }
         var content = NSString(data: data, encoding: NSUTF8StringEncoding)
         println("Content:\(content)")
         var i = CommonsObjc.processPersons(content)
@@ -47,9 +52,6 @@ class MasterViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
-
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
@@ -57,11 +59,6 @@ class MasterViewController: UITableViewController {
             self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
         sendPersonsRequest()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func insertNewObject(sender: AnyObject) {
@@ -119,7 +116,6 @@ class MasterViewController: UITableViewController {
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
             let object = objects[indexPath.row] as NSDate
             self.detailViewController!.detailItem = object
-            sendPersonsRequest()
         }
     }
 
