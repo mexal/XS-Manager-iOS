@@ -7,10 +7,11 @@
 //
 
 #include <Foundation/Foundation.h>
+#include  "Person.h"
 
 @interface CommonsObjc : NSObject
 
 +(int) processPersons: (NSString*) fromString;
-+(NSArray*) getPersons;
++(NSArray* ) getPersons;
 +(NSString *) filePath;
 @end

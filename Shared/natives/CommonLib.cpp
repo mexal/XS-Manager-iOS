@@ -66,24 +66,30 @@ bool CommonLib::bindDoorToDevice(const char* doorNumber, const char* deviceUUID)
     return false;
 }
 
-int callback(void *data, int argc, char **argv, char **azColName){
-    int i;
-    fprintf(stderr, "%s: ", (const char*)data);
-    for(i=0; i<argc; i++){
-        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+Person* CommonLib::getPersons() {
+    static Person result[3];
+    sqlite3_stmt *statement;
+    if ( sqlite3_prepare(_database, string("SELECT * FROM Persons").c_str(), -1, &statement, 0 ) == SQLITE_OK )
+    {
+        int el = 0;
+        //int ctotal = sqlite3_column_count(statement);
+        while ( true )
+        {
+            int res = sqlite3_step(statement);
+            
+            if ( res == SQLITE_ROW )
+            {
+                result[el].number = sqlite3_column_text(statement, 0);
+                result[el].name = sqlite3_column_text(statement, 1);
+                el++;
+            }
+            else if ( res == SQLITE_DONE || res==SQLITE_ERROR)
+            {
+                cout << "done " << endl;
+                return result;
+            }
+        }
     }
-    printf("\n");
-    return 0;
-}
-
-Person** CommonLib::getPersons() {
-    char *zErrMsg = 0;
-    const char* data = "Callback function called";
-    if (sqlite3_exec(_database, string("SELECT * FROM Persons").c_str(), callback, (void*)data, &zErrMsg) != SQLITE_OK) {
-        fprintf(stderr, "SQL error: %s\n", zErrMsg);
-        sqlite3_free(zErrMsg);
-    }else{
-        fprintf(stdout, "Operation done successfully\n");
-    }
+    
     return NULL;
 }

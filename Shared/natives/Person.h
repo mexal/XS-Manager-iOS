@@ -19,7 +19,6 @@
 //};
 
 struct Person {
-public:
-    const char* number;
-    const char* name;
+    const unsigned char* number;
+    const unsigned char* name;
 };

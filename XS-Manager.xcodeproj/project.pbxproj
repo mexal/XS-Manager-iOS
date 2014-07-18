@@ -84,7 +84,7 @@
 		CDED17D11976B9F500384518 /* XS-Manager-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XS-Manager-Bridging-Header.h"; path = "Shared/XS-Manager-Bridging-Header.h"; sourceTree = "<group>"; };
 		CDED17D31976BA0D00384518 /* CommonLib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CommonLib.cpp; path = Shared/natives/CommonLib.cpp; sourceTree = "<group>"; };
 		CDED17D41976BA0D00384518 /* CommonLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonLib.h; path = Shared/natives/CommonLib.h; sourceTree = "<group>"; };
-		CDF49B2C197803F900475A1D /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		CDF49B2F1979141900475A1D /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = Shared/natives/Person.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,9 +196,9 @@
 		CDED17CE1976B2FE00384518 /* natives */ = {
 			isa = PBXGroup;
 			children = (
+				CDF49B2F1979141900475A1D /* Person.h */,
 				CDED17D31976BA0D00384518 /* CommonLib.cpp */,
 				CDED17D41976BA0D00384518 /* CommonLib.h */,
-				CDF49B2C197803F900475A1D /* Person.h */,
 			);
 			name = natives;
 			sourceTree = "<group>";
