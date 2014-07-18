@@ -1,16 +1,9 @@
-//
-//  CommonLib.cpp
-//  XS-Manager
-//
-//  Created by Ivan Kravchenko on 15/07/14.
-//  Copyright (c) 2014 DORMA. All rights reserved.
-//
-
 #include <stdlib.h>
 #include <string.h>
 #include "tinyxml2.h"
 #include <iostream>
 #include "sqlite3.h"
+#include <stdio.h>
 
 #include "CommonLib.h"
 
@@ -71,4 +64,26 @@ int CommonLib::processPermissions(const char* xml ) {
 
 bool CommonLib::bindDoorToDevice(const char* doorNumber, const char* deviceUUID) {
     return false;
+}
+
+int callback(void *data, int argc, char **argv, char **azColName){
+    int i;
+    fprintf(stderr, "%s: ", (const char*)data);
+    for(i=0; i<argc; i++){
+        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+    }
+    printf("\n");
+    return 0;
+}
+
+Person** CommonLib::getPersons() {
+    char *zErrMsg = 0;
+    const char* data = "Callback function called";
+    if (sqlite3_exec(_database, string("SELECT * FROM Persons").c_str(), callback, (void*)data, &zErrMsg) != SQLITE_OK) {
+        fprintf(stderr, "SQL error: %s\n", zErrMsg);
+        sqlite3_free(zErrMsg);
+    }else{
+        fprintf(stdout, "Operation done successfully\n");
+    }
+    return NULL;
 }

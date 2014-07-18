@@ -84,6 +84,7 @@
 		CDED17D11976B9F500384518 /* XS-Manager-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XS-Manager-Bridging-Header.h"; path = "Shared/XS-Manager-Bridging-Header.h"; sourceTree = "<group>"; };
 		CDED17D31976BA0D00384518 /* CommonLib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CommonLib.cpp; path = Shared/natives/CommonLib.cpp; sourceTree = "<group>"; };
 		CDED17D41976BA0D00384518 /* CommonLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonLib.h; path = Shared/natives/CommonLib.h; sourceTree = "<group>"; };
+		CDF49B2C197803F900475A1D /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +198,7 @@
 			children = (
 				CDED17D31976BA0D00384518 /* CommonLib.cpp */,
 				CDED17D41976BA0D00384518 /* CommonLib.h */,
+				CDF49B2C197803F900475A1D /* Person.h */,
 			);
 			name = natives;
 			sourceTree = "<group>";
@@ -533,6 +535,7 @@
 				CDED178F1975601B00384518 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CDED17901975601B00384518 /* Build configuration list for PBXNativeTarget "XS-ManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -541,6 +544,7 @@
 				CDED17921975601B00384518 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

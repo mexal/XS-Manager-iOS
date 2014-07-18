@@ -23,4 +23,13 @@
     NSString *documentDirectory = [paths objectAtIndex:0];
     return [documentDirectory stringByAppendingPathComponent:@"xsmanager.sqlite"];
 }
+
++(NSArray *)getPersons {
+    CommonLib* lib = new CommonLib([[self filePath] UTF8String]);
+    Person** persons = lib->getPersons();
+//    NSArray* array = [[NSArray alloc] init];
+//    for (int i = 0; i < count(persons); i++) {
+//    }
+    return nil;
+}
 @end
