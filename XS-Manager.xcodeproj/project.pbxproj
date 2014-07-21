@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD92FA24197D6DD400CAEA5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD92FA21197D6DD400CAEA5D /* ViewController.m */; };
+		CD92FA25197D6DD400CAEA5D /* UARTPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = CD92FA23197D6DD400CAEA5D /* UARTPeripheral.m */; };
+		CD92FA27197D6E9F00CAEA5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD92FA26197D6E9F00CAEA5D /* UIKit.framework */; };
+		CD92FA29197D6EAA00CAEA5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD92FA28197D6EAA00CAEA5D /* Foundation.framework */; };
+		CD92FA2B197D6EB200CAEA5D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD92FA2A197D6EB200CAEA5D /* CoreBluetooth.framework */; };
 		CDED17751975601A00384518 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDED17741975601A00384518 /* AppDelegate.swift */; };
 		CDED17771975601A00384518 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDED17761975601A00384518 /* MasterViewController.swift */; };
 		CDED17791975601A00384518 /* PersonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDED17781975601A00384518 /* PersonsViewController.swift */; };
@@ -67,6 +72,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD92FA20197D6DD400CAEA5D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CD92FA21197D6DD400CAEA5D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CD92FA22197D6DD400CAEA5D /* UARTPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UARTPeripheral.h; sourceTree = "<group>"; };
+		CD92FA23197D6DD400CAEA5D /* UARTPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UARTPeripheral.m; sourceTree = "<group>"; };
+		CD92FA26197D6E9F00CAEA5D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CD92FA28197D6EAA00CAEA5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CD92FA2A197D6EB200CAEA5D /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		CDED176F1975601A00384518 /* XS-Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "XS-Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDED17731975601A00384518 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDED17741975601A00384518 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +109,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD92FA2B197D6EB200CAEA5D /* CoreBluetooth.framework in Frameworks */,
+				CD92FA29197D6EAA00CAEA5D /* Foundation.framework in Frameworks */,
+				CD92FA27197D6E9F00CAEA5D /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +128,9 @@
 		CDED17661975601A00384518 = {
 			isa = PBXGroup;
 			children = (
+				CD92FA2A197D6EB200CAEA5D /* CoreBluetooth.framework */,
+				CD92FA28197D6EAA00CAEA5D /* Foundation.framework */,
+				CD92FA26197D6E9F00CAEA5D /* UIKit.framework */,
 				CDED17931975643400384518 /* Shared */,
 				CDED17711975601A00384518 /* XS-Manager */,
 				CDED17861975601B00384518 /* XS-ManagerTests */,
@@ -132,6 +150,10 @@
 		CDED17711975601A00384518 /* XS-Manager */ = {
 			isa = PBXGroup;
 			children = (
+				CD92FA20197D6DD400CAEA5D /* ViewController.h */,
+				CD92FA21197D6DD400CAEA5D /* ViewController.m */,
+				CD92FA22197D6DD400CAEA5D /* UARTPeripheral.h */,
+				CD92FA23197D6DD400CAEA5D /* UARTPeripheral.m */,
 				CDF49B37197D5B0F00475A1D /* ExecutionUtils */,
 				CDED17741975601A00384518 /* AppDelegate.swift */,
 				CDED17761975601A00384518 /* MasterViewController.swift */,
@@ -324,9 +346,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDED17D61976BA0D00384518 /* CommonLib.cpp in Sources */,
+				CD92FA25197D6DD400CAEA5D /* UARTPeripheral.m in Sources */,
 				CDED17C81976772200384518 /* tinyxml2.cpp in Sources */,
 				CDED17791975601A00384518 /* PersonsViewController.swift in Sources */,
 				CDED17771975601A00384518 /* MasterViewController.swift in Sources */,
+				CD92FA24197D6DD400CAEA5D /* ViewController.m in Sources */,
 				CDF49B36197D3A3200475A1D /* DRMPerson.m in Sources */,
 				CDF49B39197D5B0F00475A1D /* ExecutionUtils.swift in Sources */,
 				CDED17CB1976893000384518 /* sqlite3.c in Sources */,

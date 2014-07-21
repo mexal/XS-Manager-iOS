@@ -34,9 +34,14 @@ class MasterViewController: UITableViewController {
     // #pragma mark - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showPersons" {
-            let indexPath = self.tableView.indexPathForSelectedRow()
-        }
+//        switch segue.identifier as String {
+//            case "showPersons":
+//                println("Show Persons screen")
+//            case "showUART":
+//                println("Show Devices Screen")
+//            default:
+//                println("Do nothing")
+//        }
     }
 
     // #pragma mark - Table View
@@ -52,11 +57,16 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if allValues[indexPath.row] == "Devices" {
-            
+        switch allValues[indexPath.row] {
+        case "Persons":
+            performSegueWithIdentifier("showPersons", sender: self)
+            println("Show Persons screen")
+        case "Devices":
+            performSegueWithIdentifier("showUART", sender: self)
+            println("Show Devices Screen")
+        default:
+            println("Do nothing")
         }
     }
-
-
 }
 
