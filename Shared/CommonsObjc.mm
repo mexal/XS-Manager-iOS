@@ -15,7 +15,9 @@
 
 +(int)processPersons:(NSString *)fromString {
     CommonLib* lib = new CommonLib([[self filePath] UTF8String]);
-    return lib->processPersons([fromString UTF8String]);
+    int result = lib->processPersons([fromString UTF8String]);
+    delete lib;
+    return result;
 }
 
 +(NSString *) filePath
@@ -27,13 +29,17 @@
 
 +(NSArray*)getPersons {
     CommonLib* lib = new CommonLib([[self filePath] UTF8String]);
-    Person* result = (Person*)malloc(sizeof(Person) * 3);
-    lib->getPersons(result, 3);
+    int length = lib->getPersonsLength();
+    if (length == 0) {
+        return nil;
+    }
+    Person* result = (Person*)calloc(sizeof(Person) * length, sizeof(Person) * length);
+    lib->getPersons(result);
     NSMutableArray *arr = [NSMutableArray new];
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < length; i++) {
         DRMPerson* p = [DRMPerson new];
-        p.number = [NSString stringWithUTF8String:(result+i)->number];
-        p.name = [NSString stringWithUTF8String:(result+i)->name];
+        p.number = [NSString stringWithUTF8String:(result + i)->number];
+        p.name = [NSString stringWithUTF8String:(result + i)->name];
         [arr addObject:p];
         delete result->number;
         result->number = NULL;

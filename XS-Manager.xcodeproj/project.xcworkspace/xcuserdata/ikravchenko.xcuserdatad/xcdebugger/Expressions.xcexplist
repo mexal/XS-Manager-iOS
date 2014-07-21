@@ -3,22 +3,19 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "CommonLib::getPersons():CommonLib.cpp">
-      </ContextState>
-      <ContextState
          contextName = "+[CommonsObjc getPersons]:CommonsObjc.mm">
          <PersistentStrings>
-            <PersistentString
-               value = "result+2">
-            </PersistentString>
             <PersistentString
                value = "((DRMPerson)arr[0]).name">
             </PersistentString>
             <PersistentString
-               value = "result+1">
+               value = "[NSString stringWithUTF8String:(result + i)-&gt;number]">
             </PersistentString>
             <PersistentString
                value = "p.name">
+            </PersistentString>
+            <PersistentString
+               value = "result + 49">
             </PersistentString>
             <PersistentString
                value = "p.number">
@@ -32,6 +29,9 @@
                value = "persons-&gt;NextSiblingElement()">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CommonLib::getPersons():CommonLib.cpp">
       </ContextState>
       <ContextState
          contextName = "XS_Manager.MasterViewController.handleResponse (XS_Manager.MasterViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSData&gt;, response : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSURLResponse&gt;, error : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSError&gt;) -&gt; ():MasterViewController.swift">
@@ -49,6 +49,20 @@
             </PersistentString>
             <PersistentString
                value = "strcpy(result-&gt;number , (const char*)sqlite3_column_text(statement, 0));">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "XS_Manager.DetailViewController.tableView (XS_Manager.DetailViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UITableView&gt;, cellForRowAtIndexPath : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSIndexPath&gt;) -&gt; Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UITableViewCell&gt;:DetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "p.name">
+            </PersistentString>
+            <PersistentString
+               value = "cell.textLabel">
+            </PersistentString>
+            <PersistentString
+               value = "cell.detailTextLabel">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

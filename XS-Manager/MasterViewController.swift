@@ -12,39 +12,6 @@ class MasterViewController: UITableViewController {
     
     let allValues = ["Persons", "Doors", "Permissions", "Devices"]
     
-    @IBAction func downloadData(sender: AnyObject) {
-        sendPersonsRequest()
-    }
-    
-    func sendPersonsRequest() {
-        var session = NSURLSession.sharedSession()
-        var personsUrl: NSURL = NSURL(scheme: "http", host: "192.168.3.142:8080", path: "/persons")
-        var task = session.dataTaskWithURL(personsUrl, completionHandler: handleResponse)
-        task.resume()
-    }
-    
-    func handleResponse(data: NSData!, response: NSURLResponse!, error: NSError!) -> (Void) {
-        println("Task completed")
-        if error != nil {
-            println(error.localizedDescription)
-            return
-        }
-        
-        if (response as NSHTTPURLResponse).statusCode != 200 {
-            println("Response with unsuccessful code received")
-            return
-        }
-        var content = NSString(data: data, encoding: NSUTF8StringEncoding)
-        println("Content:\(content)")
-        var i = CommonsObjc.processPersons(content)
-        println("processed:\(i)")
-        var arr = CommonsObjc.getPersons();
-        for p in arr as [DRMPerson] {
-            println("name:\(p.name) , number\(p.number)");
-        }
-        println(arr);
-    }
-    
     var detailViewController: DetailViewController? = nil
 
 
@@ -62,7 +29,6 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
-        sendPersonsRequest()
     }
 
     // #pragma mark - Segues
@@ -70,15 +36,11 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let indexPath = self.tableView.indexPathForSelectedRow()
-            ((segue.destinationViewController as UINavigationController).topViewController as DetailViewController).detailItem = nil
+//            ((segue.destinationViewController as UINavigationController).topViewController as DetailViewController)
         }
     }
 
     // #pragma mark - Table View
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allValues.count;

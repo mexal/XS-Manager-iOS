@@ -12,7 +12,7 @@ public:
     bool bindDoorToDevice(const char* doorNumber, const char* deviceUUID);
     
     int getPersonsLength();
-    void getPersons(Person* arr, int length);
+    void getPersons(Person* arr);
 private:
     sqlite3* _database;
 };
