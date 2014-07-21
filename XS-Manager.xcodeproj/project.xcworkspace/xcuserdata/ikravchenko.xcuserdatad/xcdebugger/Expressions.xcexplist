@@ -12,7 +12,16 @@
                value = "result+2">
             </PersistentString>
             <PersistentString
-               value = "result++">
+               value = "((DRMPerson)arr[0]).name">
+            </PersistentString>
+            <PersistentString
+               value = "result+1">
+            </PersistentString>
+            <PersistentString
+               value = "p.name">
+            </PersistentString>
+            <PersistentString
+               value = "p.number">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -21,6 +30,25 @@
          <PersistentStrings>
             <PersistentString
                value = "persons-&gt;NextSiblingElement()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "XS_Manager.MasterViewController.handleResponse (XS_Manager.MasterViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSData&gt;, response : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSURLResponse&gt;, error : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSError&gt;) -&gt; ():MasterViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(arr[0] as DRMPerson).name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CommonLib::getPersons(Person*, int):CommonLib.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(const char*)sqlite3_column_text(statement, 0)">
+            </PersistentString>
+            <PersistentString
+               value = "strcpy(result-&gt;number , (const char*)sqlite3_column_text(statement, 0));">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -11,7 +11,8 @@ public:
     int processPermissions(const char* xml);
     bool bindDoorToDevice(const char* doorNumber, const char* deviceUUID);
     
-    Person* getPersons();
+    int getPersonsLength();
+    void getPersons(Person* arr, int length);
 private:
     sqlite3* _database;
 };

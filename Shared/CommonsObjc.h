@@ -7,7 +7,6 @@
 //
 
 #include <Foundation/Foundation.h>
-#include  "Person.h"
 
 @interface CommonsObjc : NSObject
 

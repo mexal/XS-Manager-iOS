@@ -38,7 +38,11 @@ class MasterViewController: UITableViewController {
         println("Content:\(content)")
         var i = CommonsObjc.processPersons(content)
         println("processed:\(i)")
-        CommonsObjc.getPersons()
+        var arr = CommonsObjc.getPersons();
+        for p in arr as [DRMPerson] {
+            println("name:\(p.name) , number\(p.number)");
+        }
+        println(arr);
     }
     
     var detailViewController: DetailViewController? = nil

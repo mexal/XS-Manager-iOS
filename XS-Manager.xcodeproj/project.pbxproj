@@ -18,6 +18,7 @@
 		CDED17D21976B9F500384518 /* CommonsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = CDED17D01976B9F500384518 /* CommonsObjc.mm */; };
 		CDED17D61976BA0D00384518 /* CommonLib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDED17D31976BA0D00384518 /* CommonLib.cpp */; };
 		CDF49B331979715400475A1D /* DevicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF49B321979715400475A1D /* DevicesController.swift */; };
+		CDF49B36197D3A3200475A1D /* DRMPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF49B35197D3A3200475A1D /* DRMPerson.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		CDED17D41976BA0D00384518 /* CommonLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonLib.h; path = Shared/natives/CommonLib.h; sourceTree = "<group>"; };
 		CDF49B2F1979141900475A1D /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = Shared/natives/Person.h; sourceTree = "<group>"; };
 		CDF49B321979715400475A1D /* DevicesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesController.swift; sourceTree = "<group>"; };
+		CDF49B34197D38B000475A1D /* DRMPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRMPerson.h; sourceTree = "<group>"; };
+		CDF49B35197D3A3200475A1D /* DRMPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRMPerson.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +177,8 @@
 				CDED17CE1976B2FE00384518 /* natives */,
 				CDED17CD1976B2E400384518 /* xml */,
 				CDED17CC1976B2CD00384518 /* sqlite */,
+				CDF49B34197D38B000475A1D /* DRMPerson.h */,
+				CDF49B35197D3A3200475A1D /* DRMPerson.m */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -315,6 +320,7 @@
 				CDED17C81976772200384518 /* tinyxml2.cpp in Sources */,
 				CDED17791975601A00384518 /* DetailViewController.swift in Sources */,
 				CDED17771975601A00384518 /* MasterViewController.swift in Sources */,
+				CDF49B36197D3A3200475A1D /* DRMPerson.m in Sources */,
 				CDED17CB1976893000384518 /* sqlite3.c in Sources */,
 				CDED17D21976B9F500384518 /* CommonsObjc.mm in Sources */,
 				CDED17751975601A00384518 /* AppDelegate.swift in Sources */,
