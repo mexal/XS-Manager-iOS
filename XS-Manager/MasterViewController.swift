@@ -10,7 +10,7 @@ import UIKit
 
 class MasterViewController: UITableViewController {
     
-    let allValues = ["Persons", "Doors", "Permissions"]
+    let allValues = ["Persons", "Doors", "Permissions", "Devices"]
     
     @IBAction func downloadData(sender: AnyObject) {
         sendPersonsRequest()
@@ -42,7 +42,6 @@ class MasterViewController: UITableViewController {
     }
     
     var detailViewController: DetailViewController? = nil
-    var objects = NSMutableArray()
 
 
     override func awakeFromNib() {
@@ -67,8 +66,7 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let indexPath = self.tableView.indexPathForSelectedRow()
-            let object = objects[indexPath.row] as NSDate
-            ((segue.destinationViewController as UINavigationController).topViewController as DetailViewController).detailItem = object
+            ((segue.destinationViewController as UINavigationController).topViewController as DetailViewController).detailItem = nil
         }
     }
 
@@ -79,7 +77,7 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allValues.count
+        return allValues.count;
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -89,10 +87,9 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-//            let object = objects[indexPath.row] as NSDate
-//            self.detailViewController!.detailItem = object
-//        }
+        if allValues[indexPath.row] == "Devices" {
+            
+        }
     }
 
 

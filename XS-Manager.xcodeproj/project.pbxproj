@@ -17,6 +17,7 @@
 		CDED17CB1976893000384518 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = CDED17C91976893000384518 /* sqlite3.c */; };
 		CDED17D21976B9F500384518 /* CommonsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = CDED17D01976B9F500384518 /* CommonsObjc.mm */; };
 		CDED17D61976BA0D00384518 /* CommonLib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDED17D31976BA0D00384518 /* CommonLib.cpp */; };
+		CDF49B331979715400475A1D /* DevicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF49B321979715400475A1D /* DevicesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		CDED17D31976BA0D00384518 /* CommonLib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CommonLib.cpp; path = Shared/natives/CommonLib.cpp; sourceTree = "<group>"; };
 		CDED17D41976BA0D00384518 /* CommonLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonLib.h; path = Shared/natives/CommonLib.h; sourceTree = "<group>"; };
 		CDF49B2F1979141900475A1D /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = Shared/natives/Person.h; sourceTree = "<group>"; };
+		CDF49B321979715400475A1D /* DevicesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		CDED17711975601A00384518 /* XS-Manager */ = {
 			isa = PBXGroup;
 			children = (
+				CDF49B321979715400475A1D /* DevicesController.swift */,
 				CDED17741975601A00384518 /* AppDelegate.swift */,
 				CDED17761975601A00384518 /* MasterViewController.swift */,
 				CDED17781975601A00384518 /* DetailViewController.swift */,
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDED17D61976BA0D00384518 /* CommonLib.cpp in Sources */,
+				CDF49B331979715400475A1D /* DevicesController.swift in Sources */,
 				CDED17C81976772200384518 /* tinyxml2.cpp in Sources */,
 				CDED17791975601A00384518 /* DetailViewController.swift in Sources */,
 				CDED17771975601A00384518 /* MasterViewController.swift in Sources */,

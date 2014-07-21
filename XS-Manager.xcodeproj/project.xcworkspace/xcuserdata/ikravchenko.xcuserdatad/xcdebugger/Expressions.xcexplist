@@ -3,6 +3,20 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "CommonLib::getPersons():CommonLib.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "+[CommonsObjc getPersons]:CommonsObjc.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "result+2">
+            </PersistentString>
+            <PersistentString
+               value = "result++">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CommonLib::processPersons(char const*):CommonLib.cpp">
          <PersistentStrings>
             <PersistentString

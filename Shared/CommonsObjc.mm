@@ -26,7 +26,7 @@
 
 +(NSArray*)getPersons {
     CommonLib* lib = new CommonLib([[self filePath] UTF8String]);
-    lib->getPersons();
+    Person* result = lib->getPersons();
     return nil;
 }
 @end

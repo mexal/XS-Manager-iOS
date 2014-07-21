@@ -19,6 +19,6 @@
 //};
 
 struct Person {
-    const unsigned char* number;
-    const unsigned char* name;
+     char* number;
+     char* name;
 };

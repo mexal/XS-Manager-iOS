@@ -67,11 +67,13 @@ bool CommonLib::bindDoorToDevice(const char* doorNumber, const char* deviceUUID)
 }
 
 Person* CommonLib::getPersons() {
-    static Person result[3];
+    Person *result;
+    result = (Person*) malloc (sizeof(Person)*3);
+    Person *output = result;
     sqlite3_stmt *statement;
     if ( sqlite3_prepare(_database, string("SELECT * FROM Persons").c_str(), -1, &statement, 0 ) == SQLITE_OK )
     {
-        int el = 0;
+    
         //int ctotal = sqlite3_column_count(statement);
         while ( true )
         {
@@ -79,14 +81,20 @@ Person* CommonLib::getPersons() {
             
             if ( res == SQLITE_ROW )
             {
-                result[el].number = sqlite3_column_text(statement, 0);
-                result[el].name = sqlite3_column_text(statement, 1);
-                el++;
+                 char *name = ( char*)sqlite3_column_text(statement, 0);
+                int size = strlen(name);
+                result->name = ( char*) malloc(size);
+                
+                strcpy(result->name , name);
+                //result[el].number = sqlite3_column_text(statement, 0);
+            
+                result++;
+            
             }
             else if ( res == SQLITE_DONE || res==SQLITE_ERROR)
             {
                 cout << "done " << endl;
-                return result;
+                return output;
             }
         }
     }
