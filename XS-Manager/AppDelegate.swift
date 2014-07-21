@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let splitViewController = self.window!.rootViewController as UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as UINavigationController
-        splitViewController.delegate = navigationController.topViewController as DetailViewController
+        splitViewController.delegate = navigationController.topViewController as PersonsViewController
         return true
     }
 

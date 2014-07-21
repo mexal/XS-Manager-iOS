@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		CDED17751975601A00384518 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDED17741975601A00384518 /* AppDelegate.swift */; };
 		CDED17771975601A00384518 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDED17761975601A00384518 /* MasterViewController.swift */; };
-		CDED17791975601A00384518 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDED17781975601A00384518 /* DetailViewController.swift */; };
+		CDED17791975601A00384518 /* PersonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDED17781975601A00384518 /* PersonsViewController.swift */; };
 		CDED177C1975601B00384518 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDED177A1975601B00384518 /* Main.storyboard */; };
 		CDED177E1975601B00384518 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDED177D1975601B00384518 /* Images.xcassets */; };
 		CDED178A1975601B00384518 /* XS_ManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDED17891975601B00384518 /* XS_ManagerTests.swift */; };
@@ -71,7 +71,7 @@
 		CDED17731975601A00384518 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDED17741975601A00384518 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDED17761975601A00384518 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		CDED17781975601A00384518 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CDED17781975601A00384518 /* PersonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsViewController.swift; sourceTree = "<group>"; };
 		CDED177B1975601B00384518 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CDED177D1975601B00384518 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDED17831975601B00384518 /* XS-ManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XS-ManagerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,7 +135,7 @@
 				CDF49B37197D5B0F00475A1D /* ExecutionUtils */,
 				CDED17741975601A00384518 /* AppDelegate.swift */,
 				CDED17761975601A00384518 /* MasterViewController.swift */,
-				CDED17781975601A00384518 /* DetailViewController.swift */,
+				CDED17781975601A00384518 /* PersonsViewController.swift */,
 				CDED177A1975601B00384518 /* Main.storyboard */,
 				CDED177D1975601B00384518 /* Images.xcassets */,
 				CDED17721975601A00384518 /* Supporting Files */,
@@ -325,7 +325,7 @@
 			files = (
 				CDED17D61976BA0D00384518 /* CommonLib.cpp in Sources */,
 				CDED17C81976772200384518 /* tinyxml2.cpp in Sources */,
-				CDED17791975601A00384518 /* DetailViewController.swift in Sources */,
+				CDED17791975601A00384518 /* PersonsViewController.swift in Sources */,
 				CDED17771975601A00384518 /* MasterViewController.swift in Sources */,
 				CDF49B36197D3A3200475A1D /* DRMPerson.m in Sources */,
 				CDF49B39197D5B0F00475A1D /* ExecutionUtils.swift in Sources */,

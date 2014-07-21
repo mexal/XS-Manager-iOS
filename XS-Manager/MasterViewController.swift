@@ -12,7 +12,7 @@ class MasterViewController: UITableViewController {
     
     let allValues = ["Persons", "Doors", "Permissions", "Devices"]
     
-    var detailViewController: DetailViewController? = nil
+    var personsViewController: PersonsViewController? = nil
 
 
     override func awakeFromNib() {
@@ -27,16 +27,15 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         if let split = self.splitViewController {
             let controllers = split.viewControllers
-            self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
+            self.personsViewController = controllers[controllers.count-1].topViewController as? PersonsViewController
         }
     }
 
     // #pragma mark - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
+        if segue.identifier == "showPersons" {
             let indexPath = self.tableView.indexPathForSelectedRow()
-//            ((segue.destinationViewController as UINavigationController).topViewController as DetailViewController)
         }
     }
 
