@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 
-class PersonsViewController: UITableViewController, UISplitViewControllerDelegate {
+class DetailViewController: UITableViewController, UISplitViewControllerDelegate {
 
     var masterPopoverController: UIPopoverController? = nil
 

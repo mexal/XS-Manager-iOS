@@ -12,7 +12,7 @@ class MasterViewController: UITableViewController {
     
     let allValues = ["Persons", "Doors", "Permissions", "Devices"]
     
-    var personsViewController: PersonsViewController? = nil
+    var detailViewController: DetailViewController? = nil
 
 
     override func awakeFromNib() {
@@ -27,7 +27,7 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         if let split = self.splitViewController {
             let controllers = split.viewControllers
-            self.personsViewController = controllers[controllers.count-1].topViewController as? PersonsViewController
+            self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
     }
 
