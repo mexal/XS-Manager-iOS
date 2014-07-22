@@ -13,6 +13,7 @@
 		CD92FA29197D6EAA00CAEA5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD92FA28197D6EAA00CAEA5D /* Foundation.framework */; };
 		CD92FA2B197D6EB200CAEA5D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD92FA2A197D6EB200CAEA5D /* CoreBluetooth.framework */; };
 		CD92FA2F197E546D00CAEA5D /* DRMDoor.m in Sources */ = {isa = PBXBuildFile; fileRef = CD92FA2E197E546D00CAEA5D /* DRMDoor.m */; };
+		CDDCF1CB197E9A6B00C92D4B /* DRMPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDCF1CA197E9A6B00C92D4B /* DRMPermission.m */; };
 		CDED17751975601A00384518 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDED17741975601A00384518 /* AppDelegate.swift */; };
 		CDED17771975601A00384518 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDED17761975601A00384518 /* MasterViewController.swift */; };
 		CDED17791975601A00384518 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDED17781975601A00384518 /* DetailViewController.swift */; };
@@ -83,6 +84,9 @@
 		CD92FA2C197E468F00CAEA5D /* Door.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Door.h; sourceTree = "<group>"; };
 		CD92FA2D197E542F00CAEA5D /* DRMDoor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRMDoor.h; sourceTree = "<group>"; };
 		CD92FA2E197E546D00CAEA5D /* DRMDoor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRMDoor.m; sourceTree = "<group>"; };
+		CDDCF1C8197E972900C92D4B /* Permission.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Permission.h; sourceTree = "<group>"; };
+		CDDCF1C9197E9A1A00C92D4B /* DRMPermission.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRMPermission.h; sourceTree = "<group>"; };
+		CDDCF1CA197E9A6B00C92D4B /* DRMPermission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRMPermission.m; path = Shared/DRMPermission.m; sourceTree = "<group>"; };
 		CDED176F1975601A00384518 /* XS-Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "XS-Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDED17731975601A00384518 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDED17741975601A00384518 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 				CDF49B35197D3A3200475A1D /* DRMPerson.m */,
 				CD92FA2D197E542F00CAEA5D /* DRMDoor.h */,
 				CD92FA2E197E546D00CAEA5D /* DRMDoor.m */,
+				CDDCF1C9197E9A1A00C92D4B /* DRMPermission.h */,
+				CDDCF1CA197E9A6B00C92D4B /* DRMPermission.m */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -236,6 +242,7 @@
 				CDED17D31976BA0D00384518 /* CommonLib.cpp */,
 				CDED17D41976BA0D00384518 /* CommonLib.h */,
 				CD92FA2C197E468F00CAEA5D /* Door.h */,
+				CDDCF1C8197E972900C92D4B /* Permission.h */,
 			);
 			name = natives;
 			sourceTree = "<group>";
@@ -363,6 +370,7 @@
 				CDF49B39197D5B0F00475A1D /* ExecutionUtils.swift in Sources */,
 				CDED17CB1976893000384518 /* sqlite3.c in Sources */,
 				CDED17D21976B9F500384518 /* CommonsObjc.mm in Sources */,
+				CDDCF1CB197E9A6B00C92D4B /* DRMPermission.m in Sources */,
 				CDED17751975601A00384518 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

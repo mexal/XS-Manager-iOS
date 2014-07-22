@@ -33,6 +33,8 @@ class DetailViewController: UITableViewController, UISplitViewControllerDelegate
                 sendPersonsRequest()
             case .Doors:
                 sendDoorsRequest()
+            case .Permissions:
+                sendPermissionsRequest()
             default:
                 println("No request for the mode")
             }
@@ -54,14 +56,20 @@ class DetailViewController: UITableViewController, UISplitViewControllerDelegate
         sendRequest("/doors", handleDoors)
     }
     
+    func sendPermissionsRequest() {
+        sendRequest("/permissions", handlePermissions)
+    }
+    
     func handlePersons (data: NSData!, response: NSURLResponse!, error: NSError!) -> (Void) {
         personsHandler(retrieveContent(data, response: response, error: error))
-        //ExecutionUtils.executeInMainThread({self.tableView.reloadData()})
     }
     
     func handleDoors(data: NSData!, response: NSURLResponse!, error: NSError!) -> (Void) {
         doorsHandler(retrieveContent(data, response: response, error: error))
-        //ExecutionUtils.executeInMainThread({self.tableView.reloadData()})
+    }
+    
+    func handlePermissions(data: NSData!, response: NSURLResponse!, error: NSError!) -> (Void) {
+        permissionsHandler(retrieveContent(data, response: response, error: error))
     }
     
     func retrieveContent(data: NSData!, response: NSURLResponse!, error: NSError!) -> (NSString!){
@@ -93,6 +101,12 @@ class DetailViewController: UITableViewController, UISplitViewControllerDelegate
         println("processed:\(i)")
         self.items = CommonsObjc.getDoors() as [DRMDoor]
     }
+    
+    func permissionsHandler(content: NSString!) {
+        var i = CommonsObjc.processPermissions(content)
+        println("processed:\(i)")
+        self.items = CommonsObjc.getPermissions() as [DRMPermission]
+    }
 
 
     override func viewDidLoad() {
@@ -111,24 +125,30 @@ class DetailViewController: UITableViewController, UISplitViewControllerDelegate
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let identifier = "person_cell"
-        var  cell = UITableViewCell(style: .Subtitle, reuseIdentifier: identifier)
+        var  cell: UITableViewCell!
         if self.mode {
             switch self.mode! {
             case .Persons:
+                cell = UITableViewCell(style: .Subtitle, reuseIdentifier: identifier)
                 var p = items?[indexPath.row] as? DRMPerson
-                println("name:\(p?.name) , number:\(p?.number)")
                 if p {
                     cell.textLabel.text = p?.name
                     cell.detailTextLabel.text = p?.number
                 }
             case .Doors:
+                cell = UITableViewCell(style: .Subtitle, reuseIdentifier: identifier)
                 var p = items?[indexPath.row] as? DRMDoor
-                println("name:\(p?.name) , number:\(p?.number)")
                 if p {
                     cell.textLabel.text = p?.name
                     cell.detailTextLabel.text = p?.number
                 }
-                
+            case .Permissions:
+                cell = UITableViewCell(style: .Value2, reuseIdentifier: identifier)
+                var p = items?[indexPath.row] as? DRMPermission
+                if p {
+                    cell.textLabel.text = "Door: \(p!.doorNumber)"
+                    cell.detailTextLabel.text = "Person: \(p!.personNumber)"
+                }
             default:
                 println("No content to fill")
             }

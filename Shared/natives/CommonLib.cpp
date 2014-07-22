@@ -18,6 +18,8 @@ CommonLib::CommonLib(const char* fileName) {
     
     createTable(string("CREATE TABLE IF NOT EXISTS Persons (person_number TEXT UNIQUE NOT NULL, person_name TEXT NOT NULL);").c_str());
     createTable(string("CREATE TABLE IF NOT EXISTS Doors (door_number TEXT UNIQUE NOT NULL, door_name TEXT NOT NULL);").c_str());
+    createTable(string("CREATE TABLE IF NOT EXISTS Permissions (permission_door_number TEXT NOT NULL, permission_person_number TEXT NOT NULL, PRIMARY KEY (permission_door_number, permission_person_number));").c_str());
+    createTable(string("CREATE TABLE IF NOT EXISTS Doors2Devices (dd_door_number TEXT UNIQUE NOT NULL, dd_device_uuid TEXT UNIQUE NOT NULL);").c_str());
 }
 CommonLib::~CommonLib() {
     sqlite3_close(_database);
@@ -90,8 +92,68 @@ int CommonLib::processPersons(const char* xml) {
     return count;
 }
 
-int CommonLib::processPermissions(const char* xml ) {
-    return -1;
+int CommonLib::processPermissions(const char* xml) {
+    XMLDocument doc;
+    XMLError err = doc.Parse(xml);
+    cout<<"Error:"<<err<<endl;
+    if (err != 0) {
+        return -1;
+    }
+    
+    int count = 0;
+    XMLElement *levelElement = doc.FirstChildElement("Permissions");
+    for (XMLElement* child = levelElement->FirstChildElement(); child != NULL; child = child->NextSiblingElement())
+    {
+        count++;
+        const char* doorNumber = child->Attribute("doorNumber");
+        const char* personNumber = child->Attribute("personNumber");
+        cout<<"Permission doorNumber:"<<doorNumber<<", personNumber:"<<personNumber<<endl;
+        string str = string("INSERT INTO Permissions (permission_door_number, permission_person_number) VALUES ( ") + string(doorNumber) + " , \'" + string(personNumber) + "\' )";
+        const char* statement = str.c_str();
+        char* sqlerr;
+        if (sqlite3_exec(_database, statement, NULL, NULL, &sqlerr) != SQLITE_OK) {
+            cout<<"Person not inserted:"<<sqlerr<<endl;
+        } else {
+            sqlite3_free(sqlerr);
+            cout<<"Inserted person number:"<<doorNumber<<",name:"<<personNumber<<endl;
+        }
+    }
+    return count;
+}
+
+int CommonLib::getPermissionsLength() {
+    return getEntriesCount((char*)string("Permissions").c_str());
+}
+
+void CommonLib::getPermissions(Permission* result) {
+    sqlite3_stmt *statement;
+    if (sqlite3_prepare(_database, string("SELECT * FROM Permissions ORDER BY permission_door_number ASC").c_str(), -1, &statement, 0 ) == SQLITE_OK )
+    {
+        while ( true )
+        {
+            int res = sqlite3_step(statement);
+            
+            if ( res == SQLITE_ROW )
+            {
+                char *doorNumber = (char*)sqlite3_column_text(statement, 0);
+                result->doorNumber = (char*) malloc(strlen(doorNumber));
+                strcpy(result->doorNumber , (const char*)sqlite3_column_text(statement, 0));
+                char *personNumber = (char*)sqlite3_column_text(statement, 1);
+                result->personNumber = (char*) malloc(strlen(personNumber));
+                strcpy(result->personNumber , (const char*)sqlite3_column_text(statement, 1));
+                
+                result++;
+                
+            }
+            else if ( res == SQLITE_DONE || res==SQLITE_ERROR)
+            {
+                cout << "done " << endl;
+                sqlite3_reset(statement);
+                return;
+            }
+        }
+    }
+
 }
 
 bool CommonLib::bindDoorToDevice(const char* doorNumber, const char* deviceUUID) {
