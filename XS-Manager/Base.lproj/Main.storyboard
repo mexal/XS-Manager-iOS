@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
     </dependencies>
     <scenes>
@@ -18,7 +17,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-aE-onr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-38" y="-630"/>
+            <point key="canvasLocation" x="-103" y="-630"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
@@ -176,7 +175,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SSr-GS-nys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1363" y="309"/>
+            <point key="canvasLocation" x="1359" y="127"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
@@ -191,7 +190,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLD-UC-DBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604" y="309"/>
+            <point key="canvasLocation" x="604" y="127"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ZPQ-Mw-5Ti">
@@ -216,8 +215,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9V-eg-5fB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="480" height="44"/>
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9V-eg-5fB">
+                                                    <rect key="frame" x="60" y="-1" width="480" height="44"/>
                                                     <state key="normal" title="Connect">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -227,10 +226,10 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="a9V-eg-5fB" secondAttribute="trailing" id="Ct6-Zk-BTw"/>
-                                                <constraint firstAttribute="bottom" secondItem="a9V-eg-5fB" secondAttribute="bottom" constant="-3" id="X7C-fg-hRz"/>
-                                                <constraint firstItem="a9V-eg-5fB" firstAttribute="top" secondItem="ez7-BG-WNS" secondAttribute="top" id="a30-G0-Q0I"/>
-                                                <constraint firstItem="a9V-eg-5fB" firstAttribute="leading" secondItem="ez7-BG-WNS" secondAttribute="leading" id="qhl-hR-f8O"/>
+                                                <constraint firstItem="a9V-eg-5fB" firstAttribute="leading" secondItem="ez7-BG-WNS" secondAttribute="leading" constant="60" id="Dqw-SD-Ugo"/>
+                                                <constraint firstAttribute="bottom" secondItem="a9V-eg-5fB" secondAttribute="bottom" constant="-2" id="GPp-mV-hQy"/>
+                                                <constraint firstItem="a9V-eg-5fB" firstAttribute="top" secondItem="ez7-BG-WNS" secondAttribute="top" constant="-1" id="dWV-fM-GAb"/>
+                                                <constraint firstItem="a9V-eg-5fB" firstAttribute="centerX" secondItem="ez7-BG-WNS" secondAttribute="centerX" id="iCO-DX-qWb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -265,8 +264,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aLG-3D-pa8">
+                                                    <rect key="frame" x="14" y="8" width="511" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="sendTextFieldEditingChanged:" destination="N2G-C2-9ql" eventType="editingChanged" id="b8D-FO-5Oy"/>
+                                                        <action selector="sendTextFieldEditingDidBegin:" destination="N2G-C2-9ql" eventType="editingDidBegin" id="CsN-r9-pSC"/>
+                                                    </connections>
+                                                </textField>
                                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxy-Qa-u6t">
-                                                    <rect key="frame" x="413" y="6" width="47" height="31"/>
+                                                    <rect key="frame" x="533" y="6" width="47" height="31"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <state key="normal" title="Send">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -275,15 +283,6 @@
                                                         <action selector="sendButtonPressed:" destination="N2G-C2-9ql" eventType="touchUpInside" id="BZH-sO-aCb"/>
                                                     </connections>
                                                 </button>
-                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aLG-3D-pa8">
-                                                    <rect key="frame" x="14" y="7" width="391" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
-                                                    <connections>
-                                                        <action selector="sendTextFieldEditingChanged:" destination="N2G-C2-9ql" eventType="editingChanged" id="b8D-FO-5Oy"/>
-                                                        <action selector="sendTextFieldEditingDidBegin:" destination="N2G-C2-9ql" eventType="editingDidBegin" id="CsN-r9-pSC"/>
-                                                    </connections>
-                                                </textField>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.78571428570000001" green="0.11971195530000001" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -307,10 +306,10 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWa-3V-bVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1371" y="-630"/>
+            <point key="canvasLocation" x="1359" y="-631"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Tll-UG-LXB"/>
+        <segue reference="Opi-Ll-os6"/>
     </inferredMetricsTieBreakers>
 </document>
