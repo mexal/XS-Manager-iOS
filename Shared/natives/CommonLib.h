@@ -1,5 +1,6 @@
 #import "sqlite3.h"
 #import "Person.h"
+#import "Door.h"
 
 class CommonLib
 {
@@ -13,6 +14,12 @@ public:
     
     int getPersonsLength();
     void getPersons(Person* arr);
+    
+    int getDoorsLength();
+    void getDoors(Door* arr);
+    void createTable(const char* sql);
+protected:
+    int getEntriesCount(char* tableName);
 private:
     sqlite3* _database;
 };

@@ -3,6 +3,44 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "XS_Manager.MasterViewController.handleResponse (XS_Manager.MasterViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSData&gt;, response : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSURLResponse&gt;, error : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSError&gt;) -&gt; ():MasterViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(arr[0] as DRMPerson).name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "XS_Manager.DetailViewController.tableView (XS_Manager.DetailViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UITableView&gt;, cellForRowAtIndexPath : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSIndexPath&gt;) -&gt; Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UITableViewCell&gt;:DetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "p.name">
+            </PersistentString>
+            <PersistentString
+               value = "cell.textLabel">
+            </PersistentString>
+            <PersistentString
+               value = "cell.detailTextLabel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "XS_Manager.MasterViewController.prepareForSegue (XS_Manager.MasterViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UIStoryboardSegue&gt;, sender : Swift.ImplicitlyUnwrappedOptional&lt;Swift.AnyObject&gt;) -&gt; ():MasterViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "segue.destinationViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CommonLib::processPersons(char const*):CommonLib.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "persons-&gt;NextSiblingElement()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "+[CommonsObjc getPersons]:CommonsObjc.mm">
          <PersistentStrings>
             <PersistentString
@@ -23,25 +61,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CommonLib::processPersons(char const*):CommonLib.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "persons-&gt;NextSiblingElement()">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "CommonLib::getPersons():CommonLib.cpp">
-      </ContextState>
-      <ContextState
-         contextName = "XS_Manager.MasterViewController.handleResponse (XS_Manager.MasterViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSData&gt;, response : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSURLResponse&gt;, error : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSError&gt;) -&gt; ():MasterViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "(arr[0] as DRMPerson).name">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "CommonLib::getPersons(Person*, int):CommonLib.cpp">
          <PersistentStrings>
             <PersistentString
@@ -53,18 +72,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "XS_Manager.DetailViewController.tableView (XS_Manager.DetailViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UITableView&gt;, cellForRowAtIndexPath : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSIndexPath&gt;) -&gt; Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UITableViewCell&gt;:DetailViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "p.name">
-            </PersistentString>
-            <PersistentString
-               value = "cell.textLabel">
-            </PersistentString>
-            <PersistentString
-               value = "cell.detailTextLabel">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "CommonLib::getPersons():CommonLib.cpp">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface DRMPerson : NSObject
+@interface DRMDoor : NSObject
     @property NSString* number;
     @property NSString* name;
 @end

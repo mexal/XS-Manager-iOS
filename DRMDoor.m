@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
-#import "DRMPerson.h"
+#import "DRMDoor.h"
 
-@implementation DRMPerson: NSObject
+@implementation DRMDoor: NSObject
     @synthesize number;
     @synthesize name;
 @end

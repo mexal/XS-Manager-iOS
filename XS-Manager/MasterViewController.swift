@@ -10,8 +10,6 @@ import UIKit
 
 class MasterViewController: UITableViewController {
     
-    let allValues = ["Persons", "Doors", "Permissions", "Devices"]
-    
     var detailViewController: DetailViewController? = nil
 
 
@@ -31,41 +29,21 @@ class MasterViewController: UITableViewController {
         }
     }
 
-    // #pragma mark - Segues
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        switch segue.identifier as String {
-//            case "showPersons":
-//                println("Show Persons screen")
-//            case "showUART":
-//                println("Show Devices Screen")
-//            default:
-//                println("Do nothing")
-//        }
-    }
-
-    // #pragma mark - Table View
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allValues.count;
-    }
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel.text = allValues[indexPath.row]
-        return cell
-    }
-
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        switch allValues[indexPath.row] {
-        case "Persons":
-            performSegueWithIdentifier("showPersons", sender: self)
-            println("Show Persons screen")
-        case "Devices":
-            performSegueWithIdentifier("showUART", sender: self)
-            println("Show Devices Screen")
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        switch segue.identifier as String {
+        case "showUART":
+            println(segue.identifier)
+        case "showPersons":
+            ((segue.destinationViewController as UINavigationController).topViewController as DetailViewController).mode = DetailViewController.ContentMode.Persons
+            println(segue.identifier)
+        case "showDoors":
+            ((segue.destinationViewController as UINavigationController).topViewController as DetailViewController).mode = DetailViewController.ContentMode.Doors
+            println(segue.identifier)
+        case "showPermissions":
+            ((segue.destinationViewController as UINavigationController).topViewController as DetailViewController).mode = DetailViewController.ContentMode.Permissions
+            println(segue.identifier)
         default:
-            println("Do nothing")
+            println("Segue is not defined")
         }
     }
 }
