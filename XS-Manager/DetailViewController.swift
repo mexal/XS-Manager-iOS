@@ -22,19 +22,34 @@ class DetailViewController: UITableViewController, UISplitViewControllerDelegate
         }
     }
 
+    // MARK: - ACTIONS
+    
     @IBAction func downloadData(sender: AnyObject) {
         loadContent()
     }
+    
+    
+    // MARK: - NETWORK
     
     func loadContent() {
         if self.mode {
             switch self.mode! {
             case .Persons:
-                sendPersonsRequest()
+                self.items = CommonsObjc.getPersons();
+                if (items == nil || items?.count == 0) {
+                    sendRequest("/persons", handlePersons)
+                }
             case .Doors:
-                sendDoorsRequest()
+                self.items = CommonsObjc.getDoors();
+                if (items == nil || items?.count == 0) {
+                    sendRequest("/doors", handleDoors)
+                }
+                
             case .Permissions:
-                sendPermissionsRequest()
+                self.items = CommonsObjc.getPermissions();
+                if (items == nil || items?.count == 0) {
+                    sendRequest("/permissions", handlePermissions)
+                }
             default:
                 println("No request for the mode")
             }
@@ -48,18 +63,6 @@ class DetailViewController: UITableViewController, UISplitViewControllerDelegate
         task.resume()
     }
     
-    func sendPersonsRequest() {
-        sendRequest("/persons", handlePersons)
-    }
-    
-    func sendDoorsRequest() {
-        sendRequest("/doors", handleDoors)
-    }
-    
-    func sendPermissionsRequest() {
-        sendRequest("/permissions", handlePermissions)
-    }
-    
     func handlePersons (data: NSData!, response: NSURLResponse!, error: NSError!) -> (Void) {
         personsHandler(retrieveContent(data, response: response, error: error))
     }
@@ -70,6 +73,27 @@ class DetailViewController: UITableViewController, UISplitViewControllerDelegate
     
     func handlePermissions(data: NSData!, response: NSURLResponse!, error: NSError!) -> (Void) {
         permissionsHandler(retrieveContent(data, response: response, error: error))
+    }
+    
+    func personsHandler(content: NSString!) {
+        if content.length == 0 { return }
+        var i = CommonsObjc.processPersons(content)
+        println("processed:\(i)")
+        self.items = CommonsObjc.getPersons() as [DRMPerson]
+    }
+    
+    func doorsHandler(content: NSString!) {
+        if content.length == 0 { return }
+        var i = CommonsObjc.processDoors(content)
+        println("processed:\(i)")
+        self.items = CommonsObjc.getDoors() as [DRMDoor]
+    }
+    
+    func permissionsHandler(content: NSString!) {
+        if content.length == 0 { return }
+        var i = CommonsObjc.processPermissions(content)
+        println("processed:\(i)")
+        self.items = CommonsObjc.getPermissions() as [DRMPermission]
     }
     
     func retrieveContent(data: NSData!, response: NSURLResponse!, error: NSError!) -> (NSString!){
@@ -89,25 +113,7 @@ class DetailViewController: UITableViewController, UISplitViewControllerDelegate
         return content
     }
     
-    func personsHandler(content: NSString!) {
-        if content.length == 0 { return }
-        var i = CommonsObjc.processPersons(content)
-        println("processed:\(i)")
-        self.items = CommonsObjc.getPersons() as [DRMPerson]
-    }
-    
-    func doorsHandler(content: NSString!) {
-        var i = CommonsObjc.processDoors(content)
-        println("processed:\(i)")
-        self.items = CommonsObjc.getDoors() as [DRMDoor]
-    }
-    
-    func permissionsHandler(content: NSString!) {
-        var i = CommonsObjc.processPermissions(content)
-        println("processed:\(i)")
-        self.items = CommonsObjc.getPermissions() as [DRMPermission]
-    }
-
+    // MARK: - VIEW CALLBACKS
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,33 +123,30 @@ class DetailViewController: UITableViewController, UISplitViewControllerDelegate
         loadContent()
     }
     
-    // #pragma mark - TableView DataSource
+    // MARK: - TableView DataSource
     
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return items ? items!.count : 0
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let identifier = "person_cell"
-        var  cell: UITableViewCell!
+        let identifier = "detail_cell"
+        var  cell = tableView.dequeueReusableCellWithIdentifier(identifier) as UITableViewCell
         if self.mode {
             switch self.mode! {
             case .Persons:
-                cell = UITableViewCell(style: .Subtitle, reuseIdentifier: identifier)
                 var p = items?[indexPath.row] as? DRMPerson
                 if p {
                     cell.textLabel.text = p?.name
                     cell.detailTextLabel.text = p?.number
                 }
             case .Doors:
-                cell = UITableViewCell(style: .Subtitle, reuseIdentifier: identifier)
                 var p = items?[indexPath.row] as? DRMDoor
                 if p {
                     cell.textLabel.text = p?.name
                     cell.detailTextLabel.text = p?.number
                 }
             case .Permissions:
-                cell = UITableViewCell(style: .Value2, reuseIdentifier: identifier)
                 var p = items?[indexPath.row] as? DRMPermission
                 if p {
                     cell.textLabel.text = "Door: \(p!.doorNumber)"
@@ -157,7 +160,7 @@ class DetailViewController: UITableViewController, UISplitViewControllerDelegate
         return cell
     }
 
-    // #pragma mark - Split view
+    // MARK: - Split view
 
     func splitViewController(splitController: UISplitViewController, willHideViewController viewController: UIViewController, withBarButtonItem barButtonItem: UIBarButtonItem, forPopoverController popoverController: UIPopoverController) {
         barButtonItem.title = "Master" // NSLocalizedString(@"Master", @"Master")
