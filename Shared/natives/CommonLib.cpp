@@ -5,7 +5,7 @@
 #include "sqlite3.h"
 #include <stdio.h>
 
-#include "CommonLib.h"
+#include "CommonLib.h" // Старайся свои .h подключать первыми, тогда не нужно будет подключать те либы, которые ты используешь в .h в .cpp повторно
 
 using namespace tinyxml2;
 using namespace std;
@@ -49,7 +49,7 @@ int CommonLib::processDoors(const char* xml) {
         const char* number = child->Attribute("number");
         const char* name = child->Attribute("name");
         cout<<"Door number:"<<number<<",name:"<<name<<endl;
-        string str = string("INSERT INTO Doors (door_number, door_name) VALUES ( ") + string(number) + " , \'" + string(name) + "\' )";
+        string str = string("INSERT INTO Doors (door_number, door_name) VALUES ( ") + string(number) + " , \'" + string(name) + "\' )"; // в C++ здесь, в отличии от Java лишнее копирование происходит. Можно просто так: string str("...");
         const char* statement = str.c_str();
         char* sqlerr;
         if (sqlite3_exec(_database, statement, NULL, NULL, &sqlerr) != SQLITE_OK) {
@@ -122,7 +122,7 @@ int CommonLib::processPermissions(const char* xml) {
 }
 
 int CommonLib::getPermissionsLength() {
-    return getEntriesCount((char*)string("Permissions").c_str());
+    return getEntriesCount((char*)string("Permissions").c_str()); //  не нужно оборачивать в string, можно просто: return getEntriesCount("Permissions"); Но getEntriesCount должна принимать const char *. Её можно изменить спокойно, я посмотрел ниже
 }
 
 void CommonLib::getPermissions(Permission* result) {
@@ -160,14 +160,14 @@ bool CommonLib::bindDoorToDevice(const char* doorNumber, const char* deviceUUID)
     return false;
 }
 
-int CommonLib::getEntriesCount(char* tableName) {
+int CommonLib::getEntriesCount(char* tableName) { // лучше передавать const char *, у тебя же значение не меняется
     sqlite3_stmt *statement;
     if (sqlite3_prepare(_database, (string("SELECT COUNT(*) FROM ") + string(tableName)).c_str(), -1, &statement, 0 ) == SQLITE_OK )
     {
         if (sqlite3_step(statement) == SQLITE_ROW)
         {
             int result = sqlite3_column_int(statement, 0);
-            sqlite3_reset(statement);
+            sqlite3_reset(statement); // не уверен, но, похоже, это и для else ветки нужно вызвать
             return result;
         } else
         {
@@ -179,7 +179,7 @@ int CommonLib::getEntriesCount(char* tableName) {
 }
 
 int CommonLib::getPersonsLength() {
-    return CommonLib::getEntriesCount((char*)string("Persons").c_str());
+    return CommonLib::getEntriesCount((char*)string("Persons").c_str()); // то же что выше по поводу оборачивания строк, плюс CommonLib:: тоже не нужен вовсе, ты и так внутри этого класса
 }
 
 void CommonLib::getPersons(Person* result) {
@@ -193,8 +193,8 @@ void CommonLib::getPersons(Person* result) {
             if ( res == SQLITE_ROW )
             {
                 char *number = (char*)sqlite3_column_text(statement, 0);
-                result->number = (char*) malloc(strlen(number));
-                strcpy(result->number , (const char*)sqlite3_column_text(statement, 0));
+                result->number = (char*) malloc(strlen(number)); // эту память нужно бы где-то освобождать. Лучше бы это делать в деструкторе Person, а в конструкторе выделять. И кто тебе сказал, что использовать сишный malloc - хорошая идея. Для С++ стоит использовать new.
+                strcpy(result->number , (const char*)sqlite3_column_text(statement, 0)); // строки в стиле C должны заканчиваться нулём, поэтому нужно выделять размер строки + 1 и в последний байт ноль записывать, а то можно отгрести. Все функции для работы со строками в C ищут конец строки по нулю. С той же strlen сразу огребёшь 
                 char *name = (char*)sqlite3_column_text(statement, 1);
                 result->name = (char*) malloc(strlen(name));
                 strcpy(result->name , (const char*)sqlite3_column_text(statement, 1));
@@ -213,7 +213,7 @@ void CommonLib::getPersons(Person* result) {
 }
 
 int CommonLib::getDoorsLength() {
-    return getEntriesCount((char*)string("Doors").c_str());
+    return getEntriesCount((char*)string("Doors").c_str());  // return getEntriesCount("Doors"); !!!!
 }
 
 void CommonLib::getDoors(Door *result) {
