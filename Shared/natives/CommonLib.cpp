@@ -104,7 +104,9 @@ int CommonLib::getEntriesCount(char* tableName) {
     {
         if (sqlite3_step(statement) == SQLITE_ROW)
         {
-            return sqlite3_column_int(statement, 0);
+            int result = sqlite3_column_int(statement, 0);
+            sqlite3_reset(statement);
+            return result;
         } else
         {
             return 0;
@@ -120,7 +122,7 @@ int CommonLib::getPersonsLength() {
 
 void CommonLib::getPersons(Person* result) {
     sqlite3_stmt *statement;
-    if ( sqlite3_prepare(_database, string("SELECT * FROM Persons").c_str(), -1, &statement, 0 ) == SQLITE_OK )
+    if (sqlite3_prepare(_database, string("SELECT * FROM Persons").c_str(), -1, &statement, 0 ) == SQLITE_OK )
     {
         while ( true )
         {
@@ -141,6 +143,7 @@ void CommonLib::getPersons(Person* result) {
             else if ( res == SQLITE_DONE || res==SQLITE_ERROR)
             {
                 cout << "done " << endl;
+                sqlite3_reset(statement);
                 return;
             }
         }
@@ -174,6 +177,7 @@ void CommonLib::getDoors(Door *result) {
             else if ( res == SQLITE_DONE || res==SQLITE_ERROR)
             {
                 cout << "done " << endl;
+                sqlite3_reset(statement);
                 return;
             }
         }

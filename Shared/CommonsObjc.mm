@@ -23,6 +23,7 @@
     CommonLib* lib = new CommonLib([[self filePath] UTF8String]);
     int length = lib->getPersonsLength();
     if (length == 0) {
+        delete lib;
         return nil;
     }
     Person* result = (Person*)calloc(sizeof(Person) * length, sizeof(Person) * length);
@@ -56,6 +57,7 @@
     CommonLib* lib = new CommonLib([[self filePath] UTF8String]);
     int length = lib->getDoorsLength();
     if (length == 0) {
+        delete lib;
         return nil;
     }
     Door* result = (Door*)calloc(sizeof(Door) * length, sizeof(Door) * length);
